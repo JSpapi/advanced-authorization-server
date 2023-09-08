@@ -167,12 +167,12 @@ export const resetPassword = async (req, res) => {
       return res.status(440).json({ message: "Сеанс истек" });
     }
 
-    const user = await userModel.findOne({ username }).exec();
+    const user = await UserModel.findOne({ username }).exec();
 
     if (user) {
       const hashedPassword = await bcrypt.hash(password, 10);
       if (hashedPassword) {
-        const updatePassword = await userModel.updateOne(
+        const updatePassword = await UserModel.updateOne(
           { email: user.email },
           { password: hashedPassword }
         );
