@@ -47,6 +47,6 @@ export const registerMail = async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "электронная почта недействительна!" });
+      .json({ message: "Пользователь с таким именим не существует!" });
   }
 };
